@@ -29,6 +29,11 @@ public class ArrowController : MonoBehaviour
         float r2 = 1.0f;
 
         if (d < r1 + r2)
+        {
+            GameObject director = GameObject.Find("GameDirector");
+            director.GetComponent<GameDirector>().DecreaseHP();
+
             Destroy(gameObject);
+        }
     }
 }
