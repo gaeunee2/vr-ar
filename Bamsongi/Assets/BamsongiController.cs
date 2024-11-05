@@ -11,7 +11,7 @@ public class BamsongiController : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        GetComponent<Rigidbody>().isKinematic = true;
+        GetComponent<Rigidbody>().isKinematic = false;
         GetComponent<ParticleSystem>().Play();
     }
 
@@ -19,7 +19,7 @@ public class BamsongiController : MonoBehaviour
     void Start()
     {
         Application.targetFrameRate = 60;
-        Shoot(new Vector3(0, 400, 650));
+        //Shoot(new Vector3(0, 400, 650));
     }
 
     // Update is called once per frame
