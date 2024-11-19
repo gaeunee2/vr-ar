@@ -6,21 +6,33 @@ public class ItemGenerator : MonoBehaviour
 {
     public GameObject applePrefab;
     public GameObject bombPrefab;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    float span = 1.0f;
+    float delta = 0;
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        delta += Time.deltaTime;
+        if(this.delta > this.span)
         {
-            GameObject apple = Instantiate(applePrefab);
-            GameObject bomb = Instantiate(bombPrefab);
+            this.delta = 0;
 
-            int px = Random.Range(Vector3())
+            int itemType = Random.Range(0, 2);
+
+            int px = Random.Range(-1, 1);
+            int pz = Random.Range(-1, 1);
+            Vector3 randomPosition = new Vector3(px, 3, pz);
+
+            if (itemType == 0)
+            {
+                GameObject apple = Instantiate(applePrefab);
+                apple.transform.position = randomPosition;
+            }
+            else
+            {
+                GameObject bomb = Instantiate(bombPrefab);
+                bomb.transform.position = randomPosition;
+            }
         }
     }
 }
